@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: "/vue-blogify"
+  publicPath: process.env.HEROKU ? "/" : "/vue-blogify/"
 }
