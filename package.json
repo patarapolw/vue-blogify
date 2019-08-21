@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vue-cli-service serve:async",
     "build": "vue-cli-service build:async",
-    "test": "ts-mocha -p tsconfig.test.json src/**/*.spec.ts"
+    "test": "ts-mocha -p tsconfig.test.json src/**/*.spec.ts",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@types/uuid": "^3.4.5",
@@ -35,6 +36,7 @@
     "@vue/cli-plugin-typescript": "^3.10.0",
     "@vue/cli-service": "^3.10.0",
     "bootstrap": "^4.3.1",
+    "gh-pages": "^2.1.1",
     "mocha": "^6.2.0",
     "mutationobserver-shim": "^0.3.3",
     "node-sass": "^4.12.0",
