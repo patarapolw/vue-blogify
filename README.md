@@ -1,29 +1,23 @@
-# vue-blogify
+# Vue Blogify
 
-## Project setup
-```
-npm install
-```
+Vue CLI-based static blogging platform
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## How to use
 
-### Compiles and minifies for production
-```
-npm run build
-```
+- Edit `config.yaml`
+- Edit layouts (using `*.vue`) in `src/layouts/`
+- Add posts in `public/posts`, preferrably in `public/posts/<YEAR>/<MONTH>`. HTML, Pug and Markdown are supported.
 
-### Run your tests
-```
-npm run test
-```
+## Installation
 
-### Lints and fixes files
-```
-npm run lint
-```
+- I use NPM, and Vue CLI 3, so `npm install`
+- Run using `npm run dev`
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Building and deploying
+
+- Build using `npm run build`
+- Deploy as static website, maybe using [gh-pages](https://www.npmjs.com/package/gh-pages).
+- To deploy to most static websites, set `publicPath` in `vue.config.js` to `/`.
+    - For non-user GitHub Pages, set `publicPath` to `/<REPO_NAME>`.
+    - For Cordova, Electron, or local, set `publicPath` to `""`.
+    - Note that, if `publicPath` is not `/`, [Vue router's History Mode](https://router.vuejs.org/guide/essentials/history-mode.html) might not work.

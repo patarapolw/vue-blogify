@@ -1,0 +1,16 @@
+title: 中文 Diary
+disqus: zhdiary
+tabs:
+  - name: 千字文
+    to: /tag/千字文
+  - name: 句子
+    to: /tag/句子
+  - name: 分类词汇
+    to: /tag/分类词汇
+posts:
+  perPage: 5
+author:
+  login: polvcode
+  avatar: 'https://en.gravatar.com/userimage/35152960/7140205ee2a71cbe54d3f2ac43c0370d.jpg?size=24'
+  link: https://polvcode.dev
+about: true

@@ -2,24 +2,54 @@
   "name": "vue-blogify",
   "version": "0.1.0",
   "private": true,
+  "types": "src/declaration.d.ts",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "dev": "vue-cli-service serve:async",
+    "build": "vue-cli-service build:async",
+    "test": "ts-mocha -p tsconfig.test.json src/**/*.spec.ts"
   },
   "dependencies": {
+    "@types/uuid": "^3.4.5",
+    "bootstrap-vue": "^2.0.0-rc.19",
     "core-js": "^2.6.5",
+    "esm": "^3.2.25",
+    "fast-glob": "^3.0.4",
+    "gray-matter": "^4.0.2",
+    "hyperpug": "^0.1.7",
+    "hyperscript": "^2.0.2",
+    "js-yaml": "^3.13.1",
+    "moment": "^2.24.0",
+    "showdown": "^1.9.0",
+    "uuid": "^3.3.3",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
+    "vue-disqus": "^3.0.5",
     "vue-property-decorator": "^8.1.0",
     "vue-router": "^3.0.3"
   },
   "devDependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "@types/expect": "^1.20.4",
+    "@types/mocha": "^5.2.7",
     "@vue/cli-plugin-babel": "^3.10.0",
     "@vue/cli-plugin-typescript": "^3.10.0",
     "@vue/cli-service": "^3.10.0",
-    "node-sass": "^4.9.0",
+    "bootstrap": "^4.3.1",
+    "mocha": "^6.2.0",
+    "mutationobserver-shim": "^0.3.3",
+    "node-sass": "^4.12.0",
+    "popper.js": "^1.15.0",
+    "portal-vue": "^2.1.4",
     "sass-loader": "^7.1.0",
+    "ts-mocha": "^6.0.0",
     "typescript": "^3.4.3",
+    "vue-cli-plugin-bootstrap-vue": "^0.4.0",
+    "vue-cli-plugin-pug": "^1.0.7",
     "vue-template-compiler": "^2.6.10"
+  },
+  "vuePlugins": {
+    "service": [
+      "vue.async.config.js"
+    ]
   }
 }
