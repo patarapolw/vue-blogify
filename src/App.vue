@@ -27,8 +27,8 @@ import { g } from "@/shared";
   components: {Sidebar}
 })
 export default class App extends Vue {
-  private title = CONFIG.title || "BLOG"
-  private tabs = CONFIG.tabs || []
+  private title = g.config.title || "BLOG"
+  private tabs = g.config.tabs || []
   private g = g;
 }
 </script>

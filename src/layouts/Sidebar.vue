@@ -21,13 +21,14 @@ div
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
+import { g } from '../shared';
 
 @Component
 export default class Sidebar extends Vue {
   get tags() {
     const tagList: Record<string, number> = {};
 
-    POSTS.forEach((p) => {
+    g.posts.forEach((p) => {
       for (const t of p.tag || []) {
         tagList[t] = (tagList[t] || 0) + 1;
       }

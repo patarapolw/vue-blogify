@@ -12,6 +12,7 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 import Post from "@/layouts/Post.vue";
 import Empty from "@/layouts/Empty.vue";
 import moment from "moment";
+import { g } from '../shared';
 
 @Component({
   components: {
@@ -21,10 +22,10 @@ import moment from "moment";
 export default class Search extends Vue {
   private filename: string = "";
 
-  private disqus: string = CONFIG.disqus;
+  private disqus: string = g.config.disqus;
 
   public mounted() {
-    const ps = POSTS.filter((p) => {
+    const ps = g.posts.filter((p) => {
       const m = moment(p.date);
       if (m.format("YYYY") === this.$route.params.y && m.format("MM") === this.$route.params.mo) {
         if (p.filename

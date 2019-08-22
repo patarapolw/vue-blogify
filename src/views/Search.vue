@@ -46,7 +46,7 @@ export default class Search extends Vue {
     ? parser.filterPosts([this.g.q, `tag=${this.$route.params.tag}`].join(" "))
     : parser.filterPosts(this.g.q);
 
-    const { perPage } = CONFIG.posts;
+    const { perPage } = g.config.posts;
     this.perPage = perPage;
     this.count = ps.length;
 

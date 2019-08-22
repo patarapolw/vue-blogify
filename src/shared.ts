@@ -1,3 +1,5 @@
 export const g = {
-  q: ""
+  q: "",
+  posts: POSTS,
+  config: CONFIG
 };

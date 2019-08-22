@@ -3,6 +3,7 @@
  */
 import uuid from "uuid/v4";
 import moment from "moment";
+import { g } from '@/shared';
 
 export interface ISearchParserResult {
   is: Set<string>;
@@ -23,7 +24,7 @@ export default class SearchParser {
   public filterPosts(q: string): Record<string, any>[] {
     const cond = this.parse(q);
 
-    let ps = POSTS;
+    let ps = g.posts;
     if (this.sortBy) {
       ps = ps.sort(sorter(this.sortBy, this.desc || false));
     } else {

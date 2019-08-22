@@ -21,7 +21,7 @@ Vue CLI-based static blogging platform
     - For non-user GitHub Pages, set `publicPath` to `/<REPO_NAME>`.
     - For Cordova, Electron, or local, set `publicPath` to `""`.
     - Note that, if `publicPath` is not `/`, [Vue router's History Mode](https://router.vuejs.org/guide/essentials/history-mode.html) might not work.
-    - For instructions, see <https://cli.vuejs.org/guide/deployment.html#github-pages>
+    - For instructions, see <https://cli.vuejs.org/guide/deployment.html>
 
 ## Example
 

@@ -19,6 +19,7 @@ import moment, { Moment } from "moment";
 import matter from "gray-matter";
 import HyperPug from "hyperpug";
 import { pugFilters, md } from "@/plugins/render";
+import { g } from '../shared';
 
 @Component
 export default class Post extends Vue {
@@ -48,7 +49,7 @@ export default class Post extends Vue {
   }
 
   get author() {
-    const author = (this.matter.data ? this.matter.data.author : null) || CONFIG.author;
+    const author = (this.matter.data ? this.matter.data.author : null) || g.config.author;
     if (!author) {
       return {
         link: "#",
