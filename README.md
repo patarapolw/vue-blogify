@@ -26,3 +26,7 @@ Vue CLI-based static blogging platform
 ## Example
 
 See <https://vue-blogify.patarapolw.now.sh>
+
+## Used in
+
+<https://zhdiary.now.sh>
