@@ -1,5 +1,4 @@
 title: 中文 Diary
-disqus: zhdiary
 tabs:
   - name: 千字文
     to: /tag/千字文
@@ -14,3 +13,7 @@ author:
   avatar: 'https://en.gravatar.com/userimage/35152960/7140205ee2a71cbe54d3f2ac43c0370d.jpg?size=24'
   link: https://polvcode.dev
 about: true
+external:
+  disqus: vue-blogify
+  google:
+    analytics: UA-146246917-2

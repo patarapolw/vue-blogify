@@ -13,6 +13,7 @@ import Post from "@/layouts/Post.vue";
 import Empty from "@/layouts/Empty.vue";
 import moment from "moment";
 import { g } from '../shared';
+import { dotGetter } from '../plugins/search';
 
 @Component({
   components: {
@@ -22,7 +23,7 @@ import { g } from '../shared';
 export default class Search extends Vue {
   private filename: string = "";
 
-  private disqus: string = g.config.disqus;
+  private disqus: string = dotGetter(g.config, "external.disqus");
 
   public mounted() {
     const ps = g.posts.filter((p) => {
