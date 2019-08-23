@@ -15,7 +15,7 @@ import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 import Post from "@/layouts/Post.vue";
 import Empty from "@/layouts/Empty.vue";
 import First from "@/layouts/First.vue";
-import SearchParser from "@/plugins/search";
+import QParser from "q2filter";
 import { normalizeArray } from "@/util";
 import { g } from "@/shared";
 
@@ -41,10 +41,23 @@ export default class Search extends Vue {
   @Watch("page")
   @Watch("$route.params")
   private async updatePosts() {
-    const parser = new SearchParser();
-    let ps = this.$route.params.tag 
-    ? parser.filterPosts([this.g.q, `tag=${this.$route.params.tag}`].join(" "))
-    : parser.filterPosts(this.g.q);
+    const parser = new QParser({
+      isString: ["title", "author", "tag"],
+      isDate: ["date"],
+      filters: {
+        "is:reversed": (items) => {
+          return items.reverse();
+        }
+      },
+      sortBy: "date",
+      desc: true
+    });
+    const q: string [] = [this.g.q];
+    if (this.$route.params.tag) {
+      q.push(`tag=${this.$route.params.tag}`);
+    }
+
+    let ps = parser.filter(POSTS, q.join(" "));
 
     const { perPage } = g.config.posts;
     this.perPage = perPage;

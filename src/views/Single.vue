@@ -13,7 +13,7 @@ import Post from "@/layouts/Post.vue";
 import Empty from "@/layouts/Empty.vue";
 import moment from "moment";
 import { g } from '../shared';
-import { dotGetter } from '../plugins/search';
+import { dotGetter } from "q2filter";
 
 @Component({
   components: {

@@ -1,5 +1,5 @@
 import { g } from "@/shared";
-import { dotGetter } from './search';
+import { dotGetter } from 'q2filter';
 
 declare const dataLayer: any[];
 
