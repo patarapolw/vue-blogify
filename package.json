@@ -7,11 +7,16 @@
     "example": "example"
   },
   "dependencies": {
+    "del": "^5.1.0",
+    "fast-glob": "^3.1.0",
+    "fs-extra": "^8.1.0",
+    "gray-matter": "^4.0.2",
     "js-yaml": "^3.13.1",
     "lodash.merge": "^4.6.2"
   },
   "devDependencies": {},
   "scripts": {
+    "build": "node build.js",
     "deploy": "cd web && npm run deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

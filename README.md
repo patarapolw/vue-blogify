@@ -1,4 +1,4 @@
-Vue CLI-based static blogging platform
+Nuxt-based customizable static blogging platform
 
 ## How to use
 

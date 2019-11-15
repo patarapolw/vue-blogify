@@ -1,5 +1,6 @@
 title: VueBlogify
 banner: VueBlogify
+description: Nuxt-based customizable static blogging platform
 tabs:
   - name: 千字文
     to: /tag/千字文
@@ -20,5 +21,7 @@ external:
     analytics: UA-146246917-2
 git:
   url: https://github.com/patarapolw/vue-blogify.git
+  # See https://nuxtjs.org/faq/github-pages/
+  base: /vue-blogify  # Need to set base when dealing with Github Pages
   # branch: gh-pages  # Always default to gh-pages
 root: example

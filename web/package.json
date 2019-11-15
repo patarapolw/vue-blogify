@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve:async",
-    "build": "vue-cli-service build:async",
+    "start": "npm run serve",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
     "deploy": "npm run build && node deploy.js"
   },
   "dependencies": {
@@ -58,10 +59,5 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ],
-  "vuePlugins": {
-    "service": [
-      "vue.async.config.js"
-    ]
-  }
+  ]
 }
