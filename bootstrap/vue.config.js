@@ -1,11 +1,13 @@
 require = require("esm")(module)
 const { pugFilters } = require("./src/plugins/render");
 const CONFIG = require("./public/build/CONFIG.json");
+const blogify = require("./blogify.json");
 
 process.env.VUE_APP_TITLE = CONFIG.title;
 
 module.exports = {
   publicPath: "",
+  outputDir: blogify.outputDir,
   configureWebpack: (config) => {
     for (const rule of config.module.rules) {
       if (rule.use) {

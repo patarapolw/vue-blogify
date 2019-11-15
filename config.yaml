@@ -15,13 +15,15 @@ author:
   avatar: 'https://en.gravatar.com/userimage/35152960/7140205ee2a71cbe54d3f2ac43c0370d.jpg?size=24'
   link: https://polvcode.dev
 about: true
-external:
-  disqus: vue-blogify
-  google:
-    analytics: UA-146246917-2
+# You may set externals when dealing with Disqus and Google Analytics
+# external:
+#   disqus: vue-blogify
+#   google:
+#     analytics: UA-146246917-2
 git:
   url: https://github.com/patarapolw/vue-blogify.git
   # See https://nuxtjs.org/faq/github-pages/
-  base: /vue-blogify  # Need to set base when dealing with Github Pages
+  base: /vue-blogify  # For Nuxt, need to set base when dealing with Github Pages
   # branch: gh-pages  # Always default to gh-pages
-root: example
+root: .data
+outputDir: dist

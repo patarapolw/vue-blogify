@@ -1,8 +1,2 @@
-!.env
-!.env.*
-.env.local
-.env.*.local
-
-*.local.yaml
-
+dist/
 node_modules/

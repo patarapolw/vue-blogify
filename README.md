@@ -1,14 +1,24 @@
-Nuxt-based customizable static blogging platform
+Markdown-customizable (Showdown.js) static blogging platform
 
 ## How to use
 
-- Edit `config.yaml`
-- You can also create `config.local.yaml`, which will overwrite settings in `config.yaml`, without committing to Git.
-- Create posts in `${root}/blog`
+- Create a new folder with `config.yaml` (and perhaps `git init`)
+- `git submodule add https://github.com/patarapolw/vue-blogify.git`
+- `npm i ./vue-blogify`
+
+## Language support
+
+This blog not only support Markdown, but also Pug via <https://github.com/patarapolw/hyperpug>. HTML is also supported.
+
+## Custom markdown extension
+
+You can easily create custom Showdown.js extension using <https://github.com/patarapolw/indented-filter>.
 
 ## Installation
 
 ```
+npm i
+npm run build
 cd web
 npm i
 npm run dev
