@@ -18,16 +18,16 @@ function loadConfig() {
   const FILES = [];
 
   del.sync([
-    "web/**/build",
-    "web/blogify.json"
+    `${blogify.themeDir}/public/**/build`,
+    `${blogify.themeDir}/blogify.json`
   ]);
 
   if (fs.existsSync(CONFIG.root)) {
     glob.sync(`${CONFIG.root}/**/*.*`).map((f) => {
       const p = path.parse(f);
-      const url = `/build/${path.relative(CONFIG.root, f)}`;
+      const url = `build/${path.relative(CONFIG.root, f)}`;
 
-      fs.copySync(f, `${blogify.themeDir}/public${url}`);
+      fs.copySync(f, `${blogify.themeDir}/public/${url}`);
 
       if ([".md", ".markdown", ".pug", ".html"].includes(p.ext)) {
         const { data, content } = matter(fs.readFileSync(f, "utf8"));

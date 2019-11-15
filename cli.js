@@ -17,7 +17,6 @@ const blogify = loadConfig();
 
 if (!fs.existsSync(path.join(blogify.themeDir, "node_modules"))) {
   console.log("Installing theme")
-
   spawnSync("npm", ["install"], {
     cwd: blogify.themeDir,
     stdio: "inherit"

@@ -2,9 +2,11 @@ Markdown-customizable (Showdown.js) static blogging platform
 
 ## How to use
 
-- Create a new folder with `config.yaml` (and perhaps `git init`)
-- `git submodule add https://github.com/patarapolw/vue-blogify.git`
-- `npm i ./vue-blogify`
+- Create a new folder with `config.yaml`
+- `git init && git submodule add https://github.com/patarapolw/vue-blogify.git`
+- `npm init -y && npm i ./vue-blogify`
+- Add `vue-blogify` and `vue-blogify --build` to `"scripts"` section of `package.json`
+- Try running the script
 
 ## Language support
 

@@ -3,7 +3,7 @@ b-card.mb-3.post
   .post-meta.mb-3
     .float-right {{dateString}}
     .post-meta-author
-      a(:href="author.link"): b-img(rounded="circle" :src="author.avatar")
+      a(:href="author.link"): b-img.mr-3(rounded="circle" :src="author.avatar")
       a(:href="author.link") {{author.login}}
   h2
     b-link(v-if="isTeaser" :to="to") {{title}}
@@ -28,21 +28,25 @@ export default class Post extends Vue {
   @Prop() url!: string;
 
   private matter: any = {};
+
   get title() {
     if (this.matter.data) {
       return this.matter.data.title || ""
     }
     return ""
   }
+
   get moment(): Moment | null {
     if (this.matter.data && this.matter.data.date) {
       return moment(this.matter.data.date);
     }
     return null;
   }
+
   get dateString() {
     return this.moment ? this.moment.format("ddd D MMMM YYYY") : "";
   }
+
   get author() {
     const author = (this.matter.data ? this.matter.data.author : null) || g.config.author;
     if (!author) {
@@ -54,6 +58,7 @@ export default class Post extends Vue {
     }
     return author;
   }
+
   get to() {
     const m = this.moment;
     if (m) {
@@ -64,6 +69,7 @@ export default class Post extends Vue {
     }
     return "";
   }
+
   get teaser() {
     const { content } = this.matter;
     const m = /^([^]+)\s+===\s+([^]+)$/.exec(content || "");
@@ -72,20 +78,21 @@ export default class Post extends Vue {
     }
     return this.parseContent(content || "");
   }
+
   get content() {
     const { content } = this.matter;
     const m = /^([^]+)\s+===\s+([^]+)$/.exec(content || "");
-    console.log(m)
     if (m) {
       return this.parseContent(m[1] + (m[2] || ""));
     }
     return this.parseContent(content || "");
   }
-  public async mounted() {
-    console.log(this.url);
+
+  async mounted() {
     this.matter = matter(await (await fetch(this.url)).text());
   }
-  private parseContent(s: string): string {
+
+  parseContent(s: string): string {
     if (/\.pug$/.test(this.url)) {
       s = pug.compile({filters: pugFilters})(s);
     } else if (/\.html?$/.test(this.url)) {

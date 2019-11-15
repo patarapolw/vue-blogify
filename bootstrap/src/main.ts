@@ -7,6 +7,14 @@ import router from './router'
 import VueDisqus from 'vue-disqus';
 import "./plugins/gtag";
 
+try {
+  require("../public/build/app.css");
+} catch(e) {}
+
+try {
+  require("../public/build/app.js");
+} catch(e) {}
+
 Vue.config.productionTip = false
 Vue.use(VueDisqus);
 

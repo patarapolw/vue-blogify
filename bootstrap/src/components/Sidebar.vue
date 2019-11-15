@@ -1,29 +1,28 @@
 <template lang="pug">
 div
+  b-card.mb-3(v-if="aboveHtml" v-html="aboveHtml")
   b-card.mb-3
-    //- center
-    //-   img(src="../assets/logo.png")
-    :markdown
-      ## Welcome to my blog
-
-      Note that both Pug.js and `:markdown` are supported.
-
-      Sidebar can be edited at `/src/layouts/Sidebar.vue`
-
-      You can further edit the markdown support at `/src/plugins/render.js`
-
-      For more information, see <https://github.com/patarapolw/vue-blogify>
-  b-card
     h3 Tag cloud
     span.mr-3(v-for="t in tags" :key="t.name" :class="t.class")
       b-link(:to="'/tag/' + t.name") {{t.name}}
+  b-card.mb-3(v-if="belowHtml" v-html="belowHtml")
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import { g } from '../shared';
+import { fetchResource } from "../util";
+
 @Component
 export default class Sidebar extends Vue {
+  aboveHtml = "";
+  belowHtml = "";
+
+  async created() {
+    this.aboveHtml = await fetchResource("build/sidebar-above");
+    this.belowHtml = await fetchResource("build/sidebar-below");
+  }
+
   get tags() {
     const tagList: Record<string, number> = {};
     g.posts.forEach((p) => {
