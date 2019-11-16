@@ -16,17 +16,17 @@ This blog not only support Markdown, but also Pug via <https://github.com/patara
 
 You can easily create custom Showdown.js extension using <https://github.com/patarapolw/indented-filter>.
 
-## Installation
-
-```
-npm i
-npm run build
-cd web
-npm i
-npm run dev
-```
-
 ## Deploying to GitHub Pages
 
-- Edit `config.yaml`
-- `cd web && npm run deploy`
+- You might use <https://www.npmjs.com/package/gh-pages>
+
+```
+vue-blogify --build
+gh-pages -d dist -t true
+```
+
+- Note that `-t true` is required, because `vue-blogify` also has `.nojekyll`.
+
+## Example
+
+<https://patarapolw.github.io/blog>

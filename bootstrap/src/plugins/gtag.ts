@@ -1,7 +1,7 @@
 import { g } from "../shared";
 import dotProp from "dot-prop";
 
-declare const dataLayer: any[];
+const dataLayer: any[] = [];
 
 async function gAnalytics(id: string) {
   var d = document, s = d.createElement('script');
