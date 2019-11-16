@@ -5,7 +5,7 @@ div
     b-navbar-toggle(target="nav-collapse")
     b-collapse#nav-collapse(is-nav)
       b-navbar-nav
-        b-nav-item(v-for="t in tabs" :key="t.name" :to="t.to" :url="t.url") {{t.name}}
+        b-nav-item(v-for="t in tabs" :key="t.name" :href="t.url" :to="t.to") {{t.name}}
       b-navbar-nav.ml-auto
         b-nav-form(@submit.stop.prevent)
           b-form-input.mr-sm-2(size="sm" placeholder="Type to search" style="min-width: 200px" v-model="q"
