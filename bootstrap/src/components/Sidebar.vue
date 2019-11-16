@@ -4,7 +4,7 @@ div
   b-card.mb-3
     h3 Tag cloud
     span.mr-3(v-for="t in tags" :key="t.name" :class="t.class")
-      b-link(:to="'/tag/' + t.name") {{t.name}}
+      b-link.tag(:to="'/tag/' + t.name") {{t.name}}
   b-card.mb-3(v-if="belowHtml" v-html="belowHtml")
 </template>
 
@@ -57,6 +57,9 @@ export default class Sidebar extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.tag {
+  word-break: keep-all;
+}
 .c30 {
   font-size: 40px;
 }
