@@ -25,20 +25,20 @@ import { g } from "../shared";
   }
 })
 export default class Search extends Vue {
-  private posts?: any[] = [];
-  private g = g;
-  private page: number = 1;
-  private count: number = 0;
-  private perPage: number = 5;
-  public mounted() {
+  posts?: any[] = [];
+  page: number = 1;
+  count: number = 0;
+  perPage: number = 5;
+
+  mounted() {
     this.page = parseInt(normalizeArray(this.$route.query.page) || "1");
     this.updatePosts();
   }
-  @Watch("g.q")
+
+  @Watch("$route", {deep: true})
   @Watch("page")
-  @Watch("$route.params")
   private async updatePosts() {
-    const q: string [] = [this.g.q];
+    const q: string [] = this.$route.query.q ? [normalizeArray(this.$route.query.q)] : [];
     if (this.$route.params.tag) {
       q.push(`tag=${this.$route.params.tag}`);
     }

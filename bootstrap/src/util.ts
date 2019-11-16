@@ -16,6 +16,8 @@ export function normalizeArray(it: any): any {
 }
 
 export async function fetchResource(url: string): Promise<string> {
+  url = `${CONFIG.baseUrl}/${url}`;
+
   if (FILES.includes(`${url}.html`)) {
     return await (await fetch(`${url}.html`)).text();
   } else if (FILES.includes(`${url}.pug`)) {
@@ -34,5 +36,3 @@ export function highlightBlock(el: Element) {
     hljs.highlightBlock(el);
   });
 }
-
-console.log(hljs.listLanguages());

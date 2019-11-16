@@ -3,7 +3,7 @@ b-card.mb-3.post
   .post-meta.mb-3
     .float-right {{dateString}}
     .post-meta-author
-      a(:href="author.link"): b-img.mr-3(rounded="circle" :src="author.avatar")
+      a(:href="author.link"): b-img.mr-2(rounded="circle" :src="author.avatar")
       a(:href="author.link") {{author.login}}
   h2
     b-link(v-if="isTeaser" :to="to") {{title}}

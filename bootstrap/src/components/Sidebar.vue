@@ -38,7 +38,9 @@ export default class Sidebar extends Vue {
         tagList[t] = (tagList[t] || 0) + 1;
       }
     });
-    return Object.keys(tagList).sort().map((t) => {
+    return Object.keys(tagList).sort((a, b) => {
+      return tagList[b] - tagList[a];
+    }).slice(0, 30).map((t) => {
       return {
         name: t,
         class: (() => {
