@@ -2,12 +2,11 @@ require = require("esm")(module)
 const { pugFilters } = require("./src/plugins/render");
 const CONFIG = require("./public/build/CONFIG.json");
 const blogify = require("./blogify.json");
-const dotProp = require("dot-prop");
 
 process.env.VUE_APP_TITLE = CONFIG.title;
 
 module.exports = {
-  publicPath: dotProp.get(CONFIG, "git.base") || "",
+  publicPath: CONFIG.baseUrl || "",
   outputDir: blogify.outputDir,
   configureWebpack: (config) => {
     for (const rule of config.module.rules) {

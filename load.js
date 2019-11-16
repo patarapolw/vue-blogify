@@ -4,7 +4,6 @@ const del = require("del");
 const glob = require("fast-glob");
 const path = require("path");
 const matter = require("gray-matter");
-const dotProp = require("dot-prop");
 
 function loadConfig() {
   const CONFIG = yaml.safeLoad(fs.readFileSync(path.join(process.cwd(), "config.yaml"), "utf8"));
@@ -27,7 +26,7 @@ function loadConfig() {
     glob.sync(`${CONFIG.root}/**/*.*`).map((f) => {
       const p = path.parse(f);
       const relativeUrl = `build/${path.relative(CONFIG.root, f)}`;
-      const url = `${dotProp.get(CONFIG, "git.base") || ""}/${relativeUrl}`;
+      const url = `${CONFIG.baseUrl || ""}/${relativeUrl}`;
 
       fs.copySync(f, `${blogify.themeDir}/public/${relativeUrl}`);
 

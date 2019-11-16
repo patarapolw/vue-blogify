@@ -1,7 +1,7 @@
 <template lang="pug">
 div
   b-navbar(toggleable="lg" type="dark" variant="success")
-    b-navbar-brand(to="/") {{title}}
+    b-navbar-brand(to="/") {{banner}}
     b-navbar-toggle(target="nav-collapse")
     b-collapse#nav-collapse(is-nav)
       b-navbar-nav
@@ -9,7 +9,6 @@ div
       b-navbar-nav.ml-auto
         b-nav-form(@submit.stop.prevent)
           b-form-input.mr-sm-2(size="sm" placeholder="Type to search" style="min-width: 200px" v-model="g.q")
-        b-nav-item(to="/about") About
   b-container.mt-3
     b-row
       b-col(sm=12 lg=8)
@@ -26,8 +25,8 @@ import { g } from "./shared";
   components: {Sidebar}
 })
 export default class App extends Vue {
-  private title = g.config.title || "BLOG"
-  private tabs = g.config.tabs || []
+  private banner = g.config.banner;
+  private tabs = g.config.tabs || [];
   private g = g;
 }
 </script>
