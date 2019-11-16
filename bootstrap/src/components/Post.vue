@@ -21,6 +21,7 @@ import pug from "hyperpug";
 // @ts-ignore
 import { pugFilters, md } from "@/plugins/render";
 import { g } from '../shared';
+import { highlightBlock } from "../util";
 
 @Component
 export default class Post extends Vue {
@@ -72,7 +73,7 @@ export default class Post extends Vue {
 
   get teaser() {
     const { content } = this.matter;
-    const m = /^([^]+)\s+===\s+([^]+)$/.exec(content || "");
+    const m = /^([^]+)\s+\n===\n\s+([^]+)$/.exec(content || "");
     if (m) {
       return this.parseContent(m[1]);
     }
@@ -81,7 +82,7 @@ export default class Post extends Vue {
 
   get content() {
     const { content } = this.matter;
-    const m = /^([^]+)\s+===\s+([^]+)$/.exec(content || "");
+    const m = /^([^]+)\s+\n===\n\s+([^]+)$/.exec(content || "");
     if (m) {
       return this.parseContent(m[1] + (m[2] || ""));
     }
@@ -90,15 +91,24 @@ export default class Post extends Vue {
 
   async mounted() {
     this.matter = matter(await (await fetch(this.url)).text());
+    highlightBlock(this.$el);
+  }
+
+  updated() {
+    highlightBlock(this.$el);
   }
 
   parseContent(s: string): string {
+    let html = s;
+
     if (/\.pug$/.test(this.url)) {
-      s = pug.compile({filters: pugFilters})(s);
+      html = pug.compile({filters: pugFilters})(s);
     } else if (/\.html?$/.test(this.url)) {
-      return s;
+    } else {
+      html = md.md2html(s);
     }
-    return md.md2html(s);
+
+    return html
   }
 }
 </script>

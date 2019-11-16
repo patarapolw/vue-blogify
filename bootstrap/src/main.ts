@@ -6,6 +6,7 @@ import App from './App.vue'
 import router from './router'
 import VueDisqus from 'vue-disqus';
 import "./plugins/gtag";
+import 'highlight.js/styles/default.css';
 
 try {
   require("../public/build/app.css");

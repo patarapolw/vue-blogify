@@ -1,5 +1,7 @@
 import pug from "hyperpug";
-import { pugFilters, md } from "@/plugins/render";;
+import { pugFilters, md } from "@/plugins/render";
+import hljs from "highlight.js";
+import hljsDefineVue from "highlightjs-vue";
 
 export function escapeRegExp(s: string) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');  // $& means the whole matched string
@@ -24,3 +26,13 @@ export async function fetchResource(url: string): Promise<string> {
 
   return "";
 }
+
+hljsDefineVue(hljs);
+
+export function highlightBlock(el: Element) {
+  Array.from(el.querySelectorAll("pre code:not(.hljs)")).forEach((el) => {
+    hljs.highlightBlock(el);
+  });
+}
+
+console.log(hljs.listLanguages());

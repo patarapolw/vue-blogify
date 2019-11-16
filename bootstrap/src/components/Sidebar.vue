@@ -3,15 +3,15 @@ div
   b-card.mb-3(v-if="aboveHtml" v-html="aboveHtml")
   b-card.mb-3
     h3 Tag cloud
-    span.mr-3(v-for="t in tags" :key="t.name" :class="t.class")
-      b-link.tag(:to="'/tag/' + t.name") {{t.name}}
+    span.mr-3.tag(v-for="t in tags" :key="t.name" :class="t.class")
+      b-link(:to="'/tag/' + t.name") {{t.name}}
   b-card.mb-3(v-if="belowHtml" v-html="belowHtml")
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import { g } from '../shared';
-import { fetchResource } from "../util";
+import { fetchResource, highlightBlock } from "../util";
 
 @Component
 export default class Sidebar extends Vue {
@@ -21,6 +21,14 @@ export default class Sidebar extends Vue {
   async created() {
     this.aboveHtml = await fetchResource("build/sidebar-above");
     this.belowHtml = await fetchResource("build/sidebar-below");
+  }
+
+  mounted() {
+    highlightBlock(this.$el);
+  }
+
+  updated() {
+    highlightBlock(this.$el);
   }
 
   get tags() {
@@ -56,9 +64,9 @@ export default class Sidebar extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .tag {
-  word-break: keep-all;
+  white-space: nowrap;
 }
 .c30 {
   font-size: 40px;

@@ -21,6 +21,7 @@ div
 import { Vue, Component } from "vue-property-decorator";
 import Sidebar from "./components/Sidebar.vue";
 import { g } from "./shared";
+
 @Component({
   components: {Sidebar}
 })
